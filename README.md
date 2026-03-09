@@ -24,7 +24,7 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 
 ## 4. Output Program
 - Menu Utama
-![1.png](1.png)
+![Menu_Utama](1.png)
 
 2. Menu Tambah Data
 ![img_9.png](img_9.png)
