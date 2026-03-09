@@ -12,7 +12,7 @@ Sistem ini dikembangkan sebagai program berbasis Java yang dibuat untuk mengelol
 
 Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OOP), di mana setiap aktivitas detailing diproses sebagai entitas mandiri melalui class Detailing. Untuk menjaga fleksibilitas penyimpanan, digunakan struktur __ArrayList__ yang memungkinkan basis data berkembang sesuai dengan jumlah transaksi yang diinput oleh pengguna.
 
---
+---
 
 ## 3. Fitur Program
 1. **Tambah Data/Create**: Menambahkan data transaksi.
