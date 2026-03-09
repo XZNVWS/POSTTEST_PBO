@@ -1,9 +1,9 @@
 #  LAPORAN POSTTEST 1 - Detailing Kendaraan
 
 ## 1. Identitas 
-* **Nama**:Devon Falen Pasae
-* **NIM**:2409106055
-* **Sistem:** Sistem Manajemen Detailing Kendaraan
+* **Nama** : Devon Falen Pasae
+* **NIM** : 2409106055
+* **Sistem** : Sistem Manajemen Detailing Kendaraan
 
 ---
 
@@ -23,7 +23,7 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 ---
 
 ## 4. Output Program
-1. Menu Utama
+- 1. Menu Utama
 ![1.png](1.png)
 
 2. Menu Tambah Data
