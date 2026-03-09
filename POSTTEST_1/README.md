@@ -51,3 +51,24 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 import java.util.ArrayList;
 import java.util.Scanner;
 ```
+
+- **Main Program**
+```java
+public static void main(String[] args) {
+        ArrayList<Detailing> listData = new ArrayList<>();
+        Scanner scan = new Scanner(System.in);
+        int menu;
+
+        do {
+            System.out.println("\n==========================================");
+            System.out.println("    SISTEM MANAJEMEN DETAILING MOBIL      ");
+            System.out.println("==========================================");
+            System.out.println("1. Tambah Data");
+            System.out.println("2. Daftar Data");
+            System.out.println("3. Edit Data");
+            System.out.println("4. Hapus Data");
+            System.out.println("5. Keluar Program");
+            System.out.print("Pilih Menu: ");
+            menu = scan.nextInt();
+            scan.nextLine();
+```
