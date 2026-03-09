@@ -28,19 +28,19 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 <img src="POSTTEST_1/img_1.png" width="500">
 
 - **Menu Tambah Data**
-<img src="img_2.png" width="500">
+<img src="POSTTEST_1/img_2.png" width="500">
 
 - **Menu Daftar Data**
-<img src="img_3.png" width="500">
+<img src="POSTTEST_1/img_3.png" width="500">
 
 - **Menu Edit Data**
-<img src="img_4.png" width="500">
+<img src="POSTTEST_1/img_4.png" width="500">
 
 - **Menu Hapus Data**
-<img src="img_5.png" width="500">
+<img src="POSTTEST_1/img_5.png" width="500">
 
 - **Opsi Keluar Program**
-<img src="img_6.png" width="500">
+<img src="POSTTEST_1/img_6.png" width="500">
 
 ---
 
