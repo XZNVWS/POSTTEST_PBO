@@ -27,18 +27,18 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 ![Menu_Utama](img_1.png)
 
 - Menu Tambah Data
-![img_9.png](img_9.png)
+![Tambah_Data](img_2.png)
 
 3. Menu Daftar Data
-![img_9.png](img_9.png)
+![Daftar_Data](img_3.png)
 
 4. Menu Edit Data
-![img_9.png](img_9.png)
+![Edit_Data](img_4.png)
 
 5. Menu Hapus Data
-![img_9.png](img_9.png)
+![Hapus_Data](img_5.png)
 
 6. Opsi Keluar Program
-![img_9.png](img_9.png)
+![Keluar](img_6.png)
 
 ---
