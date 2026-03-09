@@ -24,10 +24,10 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 
 ## 4. Output Program
 - Menu Utama
-![Menu_Utama](img_1.png)
+<img src="img_1.png" width="500">
 
 - Menu Tambah Data
-![Tambah_Data](img_2.png)
+<img src="img_2.png" width="500">
 
 3. Menu Daftar Data
 ![Daftar_Data](img_3.png)
