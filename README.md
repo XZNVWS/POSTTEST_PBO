@@ -25,7 +25,7 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 ## 4. Output Program
 
 - **Menu Utama**
-<img src="img_1.png" width="500">
+<img src="POSTTEST_1/img_1.png" width="500">
 
 - **Menu Tambah Data**
 <img src="img_2.png" width="500">
