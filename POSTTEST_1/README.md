@@ -23,22 +23,23 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 ---
 
 ## 4. Output Program
-- Menu Utama
+
+- **Menu Utama**
 <img src="img_1.png" width="500">
 
-- Menu Tambah Data
+- **Menu Tambah Data**
 <img src="img_2.png" width="500">
 
-3. Menu Daftar Data
-![Daftar_Data](img_3.png)
+- **Menu Daftar Data**
+<img src="img_3.png" width="500">
 
-4. Menu Edit Data
-![Edit_Data](img_4.png)
+- **Menu Edit Data**
+<img src="img_4.png" width="500">
 
-5. Menu Hapus Data
-![Hapus_Data](img_5.png)
+- **Menu Hapus Data**
+<img src="img_5.png" width="500">
 
-6. Opsi Keluar Program
-![Keluar](img_6.png)
+- **Opsi Keluar Program**
+<img src="img_6.png" width="500">
 
 ---
