@@ -93,7 +93,7 @@ public class Main {
         while (true) {
             System.out.print("Pilih nomor paket (1-4): ");
             int pil = input.nextInt();
-            input.nextLine(); // clear buffer
+            input.nextLine(); 
 
             if (pil >= 1 && pil <= 4) {
                 hasil[0] = daftarPaket[pil - 1];
@@ -119,7 +119,7 @@ public class Main {
                     System.out.println("=> Data berhasil ditambahkan!");
                     break;
 
-                case 2: // READ
+                case 2: 
                     if (listData.isEmpty()) {
                         System.out.println("\n[!] Data masih kosong.");
                     } else {
@@ -133,7 +133,7 @@ public class Main {
                     }
                     break;
 
-                case 3: // UPDATE
+                case 3: 
                     if (listData.isEmpty()) {
                         System.out.println("\n[!] Tidak ada data untuk diubah.");
                     } else {
@@ -155,7 +155,7 @@ public class Main {
                     }
                     break;
 
-                case 4: // DELETE
+                case 4: 
                     if (listData.isEmpty()) {
                         System.out.println("\n[!] Tidak ada data untuk dihapus.");
                     } else {
