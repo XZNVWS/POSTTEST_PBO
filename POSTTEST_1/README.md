@@ -180,3 +180,77 @@ public class Main {
         } while (menu != 5);
 ```
 
+## **6. Class**
+Terdapat 2 Class pada program ini, yaitu:
+
+- **Main.class**
+Berisi program utama untuk CRUD, serta looping.
+```javapublic class Main {
+    public static void pilihPaket(Scanner input, String[] hasil) {
+        String[] daftarPaket = {
+                "Basic Wash",
+                "Premium Wash",
+                "Basic Wash + Basic Detailing",
+                "Full Detailing"
+        };
+        int[] daftarHarga = {25000, 50000, 75000, 100000};
+
+        System.out.println("\n--- DAFTAR PAKET LAYANAN ---");
+        for (int i = 0; i < daftarPaket.length; i++) {
+            System.out.println((i + 1) + ". " + daftarPaket[i] + " | Rp" + daftarHarga[i]);
+        }
+
+        while (true) {
+            System.out.print("Pilih nomor paket (1-4): ");
+            int pil = input.nextInt();
+            input.nextLine();
+
+            if (pil >= 1 && pil <= 4) {
+                hasil[0] = daftarPaket[pil - 1];
+                hasil[1] = String.valueOf(daftarHarga[pil - 1]);
+                break;
+            } else {
+                System.out.println("[!] Pilihan tidak valid.");
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Detailing> listData = new ArrayList<>();
+        Scanner scan = new Scanner(System.in);
+        int menu;
+
+        do {
+            System.out.println("\n==========================================");
+            System.out.println("    SISTEM MANAJEMEN DETAILING MOBIL      ");
+            System.out.println("==========================================");
+            System.out.println("1. Tambah Data");
+            System.out.println("2. Daftar Data");
+            System.out.println("3. Edit Data");
+            System.out.println("4. Hapus Data");
+            System.out.println("5. Keluar Program");
+            System.out.print("Pilih Menu: ");
+            menu = scan.nextInt();
+            scan.nextLine();
+```
+
+- **Detailing.class**
+berisi data, serta konstruktor.
+```java
+public class Detailing {
+    String merk;
+    String paket;
+    int harga;
+
+    public Detailing(String merk, String paket, int harga) {
+        this.merk = merk;
+        this.paket = paket;
+        this.harga = harga;
+    }
+
+    void tampilkanBaris(int no) {
+        System.out.printf("| %-3d | %-20s | %-30s | Rp %-10d |\n",
+                no, this.merk, this.paket, this.harga);
+    }
+}
+```
