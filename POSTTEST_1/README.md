@@ -43,3 +43,11 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 <img src="img_6.png" width="500">
 
 ---
+
+## 5. Dokumentasi Kode
+
+- **Import & Deklarasi Class**
+```java
+import java.util.ArrayList;
+import java.util.Scanner;
+```
