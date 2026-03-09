@@ -1,9 +1,9 @@
 #  LAPORAN POSTTEST 1 - Detailing Kendaraan
 
 ## 1. Identitas 
-* **Nama** : Devon Falen Pasae
-* **NIM** : 2409106055
-* **Sistem** : Sistem Manajemen Detailing Kendaraan
+* **Nama**        : Devon Falen Pasae
+* **NIM**         : 2409106055
+* **Sistem**      : Sistem Manajemen Detailing Kendaraan
 
 ---
 
@@ -52,6 +52,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 ```
 
+
 - **Main Program & Looping**
 ```java
 public static void main(String[] args) {
@@ -72,6 +73,7 @@ public static void main(String[] args) {
             menu = scan.nextInt();
             scan.nextLine();
 ```
+
 
 - **pilihPaket**
 ```java
@@ -104,6 +106,7 @@ public class Main {
             }
         }
 ```
+
 
 - **Switch-Case**
 ```java
@@ -180,6 +183,7 @@ public class Main {
         } while (menu != 5);
 ```
 
+
 ## **6. Class**
 Terdapat 2 Class pada program ini, yaitu:
 
@@ -233,6 +237,7 @@ Berisi program utama untuk CRUD, serta looping.
             menu = scan.nextInt();
             scan.nextLine();
 ```
+
 
 - **Detailing.class**
 berisi data, serta konstruktor.
