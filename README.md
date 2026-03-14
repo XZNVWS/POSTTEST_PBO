@@ -223,10 +223,10 @@ switch (menu) {
 Terdapat 2 Class pada program ini, yaitu:
 
 a. **Main.class**
-Berisi logika utama program, pengelolaan menu melalui looping, dan implementasi CRUD menggunakan metode dari class Detailing.
+- Berisi logika utama program, pengelolaan menu melalui looping, dan implementasi CRUD menggunakan metode dari class Detailing.
 
 b. **Detailing.java (+ Penerapan Encapsulation)**
-Berisidata detailing dengan atribut yang diisolasi menggunakan access modifier private dan diakses melalui metode Getter serta Setter.
+- Berisi data detailing dengan atribut yang diisolasi menggunakan access modifier private dan diakses melalui metode Getter serta Setter.
 ```java
 public class Detailing {
     private String merk;
