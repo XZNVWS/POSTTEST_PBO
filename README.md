@@ -46,46 +46,13 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 
 ## 5. Dokumentasi Kode
 
-**a. Deklarasi Variabel (Menjadi Private):**
+**a. Import & Deklarasi Class**
 ```java
-private String merk;
-private String paket;
-private int harga;
+import java.util.ArrayList;
+import java.util.Scanner;
 ```
 
-**b. Penambahan Metode Getter dan Setter**
-```java
-public String getMerk() {
-    return merk;
-}
-
-public void setMerk(String merk) {
-    this.merk = merk;
-}
-
-public String getPaket() {
-    return paket;
-}
-
-public void setPaket(String paket) {
-    this.paket = paket;
-}
-
-public int getHarga() {
-    return harga;
-}
-
-public void setHarga(int harga) {
-    if (harga < 0) {
-        System.out.println("Harga tidak boleh negatif.");
-        this.harga = 0;
-    } else {
-        this.harga = harga;
-    }
-}
-```
-
-**c. Main Program & Looping**
+**b. Main Program & Looping**
 ```java
 public static void main(String[] args) {
         ArrayList<Detailing> listData = new ArrayList<>();
@@ -107,7 +74,7 @@ public static void main(String[] args) {
 ```
 
 
-**d. pilihPaket**
+**c. pilihPaket**
 ```java
 public static void pilihPaket(Scanner input, String[] hasil) {
         String[] daftarPaket = {
@@ -140,7 +107,7 @@ public static void pilihPaket(Scanner input, String[] hasil) {
 ```
 
 
-**e. Switch-Case (Case 3 menggunakan Setter)**
+**d. Switch-Case (Case 3 menggunakan Setter)**
 ```java
 switch (menu) {
                 case 1:
