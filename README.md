@@ -1,4 +1,4 @@
-#  LAPORAN POSTTEST 2 - Detailing Kendaraan
+#  LAPORAN POSTTEST 3 - Detailing Kendaraan
 
 ## 1. Identitas 
 * **Nama**        : Devon Falen Pasae
@@ -8,9 +8,9 @@
 ---
 
 ## 2. Detail Program
-Sistem ini dikembangkan sebagai program berbasis Java yang dibuat untuk mengelola operasional pada usaha jasa perawatan/detailing kendaraan. Fokus pembuatan difokuskan pada penerapan siklus data **CRUD (Create, Read, Update, dan Delete)** secara interaktif melalui input pengguna.
+Sistem ini dikembangkan sebagai program berbasis Java untuk mengelola operasional jasa detailing yang kini difokuskan khusus pada kendaraan Motor. Program ini menerapkan siklus data CRUD (Create, Read, Update, dan Delete) dengan mengadopsi prinsip Pemrograman Berorientasi Objek (OOP) tingkat lanjut, yaitu Inheritance (Pewarisan).
 
-Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OOP), di mana setiap aktivitas detailing diproses sebagai entitas mandiri melalui class Detailing. Untuk menjaga fleksibilitas penyimpanan, digunakan struktur __ArrayList__ yang memungkinkan basis data berkembang sesuai dengan jumlah transaksi yang diinput oleh pengguna.
+Secara teknis, program menggunakan tipe Hierarchical Inheritance, di mana satu superclass (Detailing) diwarisi oleh dua subclass (MotorMatic dan MotorSport). Hal ini memungkinkan program untuk menyimpan atribut umum sekaligus atribut spesifik untuk setiap jenis motor. Penyimpanan data tetap menggunakan ArrayList untuk manajemen memori yang dinamis.
 
 ---
 
@@ -44,66 +44,97 @@ Secara teknis, program ini mengadopsi prinsip Pemrograman Berorientasi Objek (OO
 
 ---
 
-## 5. Dokumentasi Kode
+## 5. Struktur Class Baru
 
-**a. Import & Deklarasi Class**
+1. **Main.class**: Mengatur alur logika program dan interaksi pengguna (Looping & Switch-Case).
+
+2. **Detailing.java (Superclass)**: Dasar dari semua objek detailing yang menyimpan data umum kendaraan motor.
+
+3. **MotorMatic.java (Subclass)**: Spesialisasi untuk motor matic dengan tambahan atribut kapasitas bagasi.
+
+4. **MotorSport.java (Subclass)**: Spesialisasi untuk motor sport dengan tambahan atribut kapasitas mesin (CC).
+
+## 6. Dokumentasi Kode
+
+**a. Main Program**
 ```java
-import java.util.ArrayList;
-import java.util.Scanner;
-```
+System.out.println("1. Tambah Data Motor");
+// ... menu lainnya ...
+case 1:
+    System.out.println("\nPilih Jenis Motor: 1. Matic | 2. Sport");
+    int jenisMotor = scan.nextInt();
+    scan.nextLine();
 
-**b. Main Program & Looping**
-```java
-public static void main(String[] args) {
-        ArrayList<Detailing> listData = new ArrayList<>();
-        Scanner scan = new Scanner(System.in);
-        int menu;
+    System.out.print("Masukkan Merk Motor: ");
+    String merkBaru = scan.nextLine();
+    // ... pilih paket ...
 
-        do {
-            System.out.println("\n==========================================");
-            System.out.println("    SISTEM MANAJEMEN DETAILING MOBIL      ");
-            System.out.println("==========================================");
-            System.out.println("1. Tambah Data");
-            System.out.println("2. Daftar Data");
-            System.out.println("3. Edit Data");
-            System.out.println("4. Hapus Data");
-            System.out.println("5. Keluar Program");
-            System.out.print("Pilih Menu: ");
-            menu = scan.nextInt();
-            scan.nextLine();
-```
-
-
-**c. pilihPaket**
-```java
-public static void pilihPaket(Scanner input, String[] hasil) {
-        String[] daftarPaket = {
-                "Basic Wash",
-                "Premium Wash",
-                "Basic Wash + Basic Detailing",
-                "Full Detailing"
-        };
-        int[] daftarHarga = {25000, 50000, 75000, 100000};
-
-        System.out.println("\n--- DAFTAR PAKET LAYANAN ---");
-        for (int i = 0; i < daftarPaket.length; i++) {
-            System.out.println((i + 1) + ". " + daftarPaket[i] + " | Rp" + daftarHarga[i]);
-        }
-
-        while (true) {
-            System.out.print("Pilih nomor paket (1-4): ");
-            int pil = input.nextInt();
-            input.nextLine();
-
-            if (pil >= 1 && pil <= 4) {
-                hasil[0] = daftarPaket[pil - 1];
-                hasil[1] = String.valueOf(daftarHarga[pil - 1]);
-                break;
-            } else {
-                System.out.println("[!] Pilihan tidak valid.");
-            }
-        }
+    if (jenisMotor == 1) {
+        System.out.print("Kapasitas Bagasi (Liter): ");
+        int bagasi = scan.nextInt();
+        listData.add(new MotorMatic(merkBaru, info[0], harga, bagasi));
+    } else if (jenisMotor == 2) {
+        System.out.print("Kapasitas Mesin (CC): ");
+        int cc = scan.nextInt();
+        listData.add(new MotorSport(merkBaru, info[0], harga, cc));
     }
+    break;
+```
+
+**b. Superclass: Detailing.Java**
+```java
+public class Detailing {
+    protected String merk;
+    protected String paket;
+    protected int harga;
+
+    public Detailing(String merk, String paket, int harga) {
+        this.merk = merk;
+        this.paket = paket;
+        this.harga = harga;
+    }
+    
+    // Getter dan Setter ...
+
+    public void tampilkanBaris(int no) {
+        System.out.printf("| %-3d | %-15s | %-20s | Rp %-10d | %-20s |\n",
+                no, this.merk, this.paket, this.harga, "-");
+    }
+}
+```
+
+
+**c. Subclass: MotorMatic.java & MotorSport.java**
+```java
+public class MotorMatic extends Detailing {
+    private int kapasitasBagasi;
+
+    public MotorMatic(String merk, String paket, int harga, int kapasitasBagasi) {
+        super(merk, paket, harga);
+        this.kapasitasBagasi = kapasitasBagasi;
+    }
+
+    @Override
+    public void tampilkanBaris(int no) {
+        System.out.printf("| %-3d | %-15s | %-20s | Rp %-10d | Matic (Bagasi: %dL) |\n",
+                no, merk, paket, harga, kapasitasBagasi);
+    }
+}
+
+public class MotorSport extends Detailing {
+    private int kapasitasMesin;
+
+    public MotorSport(String merk, String paket, int harga, int kapasitasMesin) {
+        super(merk, paket, harga);
+        this.kapasitasMesin = kapasitasMesin;
+    }
+
+    @Override
+    public void tampilkanBaris(int no) {
+        System.out.printf("| %-3d | %-15s | %-20s | Rp %-10d | Sport (Mesin: %dcc) |\n",
+                no, merk, paket, harga, kapasitasMesin);
+    }
+}
 ```
 
 
