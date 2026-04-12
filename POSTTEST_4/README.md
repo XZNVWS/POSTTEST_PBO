@@ -23,7 +23,7 @@ Program ini merupakan pengembangan dari sistem sebelumnya yang kini mengimplemen
 ## 4. Output Program
 
 - **Menu Utama**
-<img src="img_1.png" width="500">
+![Gambar 1](../POSTTEST_1/img_1.png)
 
 - **Menu Tambah Data**
 <img src="img_2.png" width="500">
