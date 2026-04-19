@@ -1,4 +1,4 @@
-public class Detailing {
+public abstract class Detailing {
     protected String merk;
     protected String paket;
     protected int harga;
@@ -10,12 +10,7 @@ public class Detailing {
     }
 
     public void setHarga(int harga) {
-        this.harga = (harga < 0) ? 0 : harga;
-    }
-
-    public void setHarga(int harga, double diskon) {
-        int totalDiskon = (int) (harga * diskon);
-        this.harga = harga - totalDiskon;
+        this.harga = Math.max(harga, 0);
     }
 
     public String getMerk() { return merk; }
@@ -24,8 +19,5 @@ public class Detailing {
     public void setPaket(String paket) { this.paket = paket; }
     public int getHarga() { return harga; }
 
-    public void tampilkanBaris(int no) {
-        System.out.printf("| %-3d | %-15s | %-20s | Rp %-10d | %-25s |\n",
-                no, this.merk, this.paket, this.harga, "-");
-    }
+    public abstract void tampilkanBaris(int no);
 }

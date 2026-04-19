@@ -75,10 +75,8 @@ public class Main {
                     }
 
                     if (isMember.equalsIgnoreCase("y")) {
-                        motorBaru.setHarga(hargaAwal, 0.1);
+                        ((Diskonable) motorBaru).terapkanDiskon(0.1);
                         System.out.println("=> Diskon Member 10% diterapkan!");
-                    } else {
-                        motorBaru.setHarga(hargaAwal);
                     }
 
                     listData.add(motorBaru);

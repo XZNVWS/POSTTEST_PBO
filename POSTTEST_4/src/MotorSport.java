@@ -1,9 +1,19 @@
-public class MotorSport extends Detailing {
+public class MotorSport extends Detailing implements Diskonable {
     private int kapasitasMesin;
 
     public MotorSport(String merk, String paket, int harga, int kapasitasMesin) {
         super(merk, paket, harga);
         this.kapasitasMesin = kapasitasMesin;
+    }
+
+    @Override
+    public void terapkanDiskon(double persentase) {
+        this.harga = (int) (this.harga * (1 - persentase));
+    }
+
+    @Override
+    public void hapusDiskon(int hargaAsal) {
+        this.harga = hargaAsal;
     }
 
     @Override
