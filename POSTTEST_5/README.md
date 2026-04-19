@@ -1,4 +1,4 @@
-#  LAPORAN POSTTEST 4 - Detailing Kendaraan
+#  LAPORAN POSTTEST 5 - Detailing Kendaraan
 
 ## 1. Identitas 
 * **Nama**        : Devon Falen Pasae
@@ -8,8 +8,7 @@
 ---
 
 ## 2. Detail Program
-Program ini merupakan pengembangan dari sistem sebelumnya yang kini mengimplementasikan prinsip Polimorfisme. Polimorfisme dalam OOP adalah konsep di mana sebuah class memiliki banyak "bentuk" method yang berbeda meskipun menggunakan nama yang sama.Pada pembaruan ini, program menerapkan dua jenis polimorfisme:Static Polymorphism (Overloading): Menggunakan nama method yang sama namun dengan parameter yang berbeda. Diterapkan pada fungsi pengaturan harga untuk membedakan antara harga normal dan harga diskon member.Dynamic Polymorphism (Overriding): Menggunakan pewarisan di mana subclass mendefinisikan ulang method milik superclass dengan nama dan parameter yang identik. Diterapkan pada penampilan data agar informasi yang keluar sesuai dengan jenis motor masing-masing.
-
+Program ini telah ditingkatkan dengan mengimplementasikan prinsip Abstraction menggunakan Abstract Class dan Interface. Abstraction merupakan proses untuk menyembunyikan detail implementasi yang kompleks dan hanya menampilkan fungsi esensial kepada pengguna. Fokus utamanya adalah pada apa yang dilakukan sebuah objek, bukan bagaimana objek tersebut melakukannya.
 ---
 
 ## 3. Fitur Program
@@ -17,7 +16,7 @@ Program ini merupakan pengembangan dari sistem sebelumnya yang kini mengimplemen
 2. **Daftar Data / Read**: Menampilkan data transaksi dengan format tabel.
 3. **Edit Data / Update**: Mengubah detail transaksi.
 4. **Hapus Data / Delete**: Menghapus data transaksi individual.
-5. **Sistem Diskon (Polymorphism Statis)**: Secara otomatis menghitung harga berbeda jika pelanggan memiliki kartu member.
+5. **Sistem Diskon** **(Interface Implementation)**: Menggunakan interface untuk memisahkan logika pemberian diskon member secara formal.
 ---
 
 ## 4. Output Program
@@ -46,56 +45,54 @@ Program ini merupakan pengembangan dari sistem sebelumnya yang kini mengimplemen
 
 1. **Main.class**: Mengatur alur logika program dan interaksi pengguna (Looping & Switch-Case).
 
-2. **Detailing.java (Superclass)**: Dasar dari semua objek detailing yang menyimpan data umum kendaraan motor.
+2. **Diskonable.java (Interface)**: Berfungsi sebagai kontrak yang mengharuskan kelas yang mengimplementasikannya untuk memiliki metode pengaturan diskon.
 
-3. **MotorMatic.java (Subclass)**: Spesialisasi untuk motor matic dengan tambahan atribut kapasitas bagasi.
+3. **Detailing.java (Abstract Superclass)**: Kelas induk abstrak yang mendefinisikan struktur umum dan metode abstrak
 
-4. **MotorSport.java (Subclass)**: Spesialisasi untuk motor sport dengan tambahan atribut kapasitas mesin (CC).
+4. **MotorMatic.java & MotorSport.java (Subclasses)**: Kelas turunan yang wajib mengimplementasikan seluruh abstract method dari induknya dan menerapkan interface diskon.
 
-Struktur Class dengan Polymorphism
-1. **Detailing.java (Superclass)**: Menerapkan Overloading pada method setHarga(). Satu versi untuk harga normal, satu versi lainnya menerima parameter double diskon.
+## 5. Dokumentasi Kode
 
-2. **MotorMatic.java & MotorSport.java (Subclasses)**: Menerapkan Overriding pada method tampilkanBaris(). Method ini dipanggil pada saat runtime untuk menampilkan atribut unik (Bagasi/CC) secara seragam melalui referensi induk.
-
-## 6. Dokumentasi Kode
-
-**a. Implementasi Polymorphism Statis**
+**a. Implementasi Interface**
 ```java
-public void setHarga(int harga) {
-    this.harga = (harga < 0) ? 0 : harga;
-}
-
-public void setHarga(int harga, double diskon) {
-    int totalDiskon = (int) (harga * diskon);
-    this.harga = harga - totalDiskon;
+public interface Diskonable {
+    void terapkanDiskon(double persentase);
+    void hapusDiskon(int hargaAsal);
 }
 ```
 
-**b. Implementasi Polymorphism Dinamis**
+**b. Implementasi Abstract Class & Method**
 ```java
-@Override
-public void tampilkanBaris(int no) {
-    System.out.printf("| %-3d | %-15s | %-20s | Rp %-10d | Matic (Bagasi: %dL) |\n",
-            no, merk, paket, harga, kapasitasBagasi);
-}
-
-@Override
-public void tampilkanBaris(int no) {
-    System.out.printf("| %-3d | %-15s | %-20s | Rp %-10d | Sport (Mesin: %dcc) |\n",
-            no, merk, paket, harga, kapasitasMesin);
+public abstract class Detailing {
+    // ... atribut ...
+    
+    // Abstract method: tidak memiliki body [cite: 16]
+    public abstract void tampilkanBaris(int no);
 }
 ```
 
-**c. Pemanggilan Polymorphism pada Program utama**
+**c. Implementasi pada Subclass**
 ```java
+public class MotorMatic extends Detailing implements Diskonable {
+    @Override
+    public void tampilkanBaris(int no) {
+        // Implementasi detail penampilan data
+    }
+
+    @Override
+    public void terapkanDiskon(double persentase) {
+        this.harga = (int) (this.harga * (1 - persentase));
+    }
+}
+```
+
+**d. Penggunaan Polymorphism & Casting**
+```java
+Detailing motorBaru; // Variabel bertipe abstract class 
+// ... instansiasi ke subclass ...
+
 if (isMember.equalsIgnoreCase("y")) {
-    motorBaru.setHarga(hargaAwal, 0.1); // Menggunakan method dengan parameter diskon
-} else {
-    motorBaru.setHarga(hargaAwal);      // Menggunakan method dengan satu parameter
-}
-
-for (int i = 0; i < listData.size(); i++) {
-    listData.get(i).tampilkanBaris(i + 1); // Memanggil method override secara otomatis
+    ((Diskonable) motorBaru).terapkanDiskon(0.1); 
 }
 ```
 
